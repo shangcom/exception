@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import static jakarta.servlet.RequestDispatcher.*;
 
+/**
+ * **ErrorPageController**는 **BasicErrorController**에 의해 대체됩니다.
+ * 현재 코드에서 ErrorPageController가 오류 발생 시 커스텀 오류 페이지를 처리하고 있습니다.
+ * BasicErrorController를 적용하면 이 부분이 자동으로 처리되며,
+ * 기본적인 오류 정보(상태 코드, 예외 메시지 등)를 출력하는 페이지를 제공할 수 있습니다.
+ */
 @Slf4j
 @Controller
 public class ErrorPageController {

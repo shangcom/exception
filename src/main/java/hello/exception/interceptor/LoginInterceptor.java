@@ -8,6 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.UUID;
 
+/**
+ * LoginInterceptor: 요청 전후로 추가 작업(특히 로깅과 세션 관리)을 수행합니다.
+ */
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 

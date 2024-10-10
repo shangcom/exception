@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * LogFilter: 요청과 응답에 대한 로깅을 처리합니다.
+ */
 @Slf4j
 public class LogFilter implements Filter {
 
