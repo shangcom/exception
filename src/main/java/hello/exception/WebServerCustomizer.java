@@ -4,7 +4,6 @@ import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 /**
  * **WebServerCustomizer**는 특정 HTTP 상태 코드나 예외에 대해 커스텀 오류 페이지를 설정하는 역할을 합니다.
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Spring Boot는 기본적으로 모든 오류를 /error 경로로 처리하며, 해당 경로에서 오류 상태에 맞는 응답을 생성합니다.
  */
 
-@Component
+//@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     @Override
     public void customize(ConfigurableWebServerFactory factory) {
