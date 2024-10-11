@@ -1,12 +1,15 @@
 package hello.exception.api;
 
-import hello.exception.web.exception.UserException;
+import hello.exception.exception.BadRequestException;
+import hello.exception.exception.UserException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @Slf4j
 @RestController
@@ -40,6 +43,22 @@ public class ApiExceptionController {
         }
         return new MemberDto(id, "hello" + id);
     }
+
+    @GetMapping("/api/response-status-ex1")
+    public String responseStatusEx1() {
+        throw new BadRequestException();
+    }
+
+    /**
+     * 현재 코드에서는 ResponseStatusException을 사용해 예외를 직접 발생시키고, 상태 코드와 메시지를 동적으로 지정.
+     *  외부 라이브러리에서 발생한 예외에 대해 적절한 HTTP 상태 코드와 메시지를 지정하고 싶다면,
+     *  ResponseStatusException을 사용하여 해당 예외를 감싸서(try-catch) 처리함.
+     */
+     @GetMapping("/api/response-status-ex2")
+     public String responseStatusEx2() {
+         throw new ResponseStatusException(
+                 HttpStatus.NOT_FOUND, "error.bad", new IllegalArgumentException());
+     }
 
     @Data
     @AllArgsConstructor
